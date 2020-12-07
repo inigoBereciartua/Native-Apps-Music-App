@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="crE-dP-Hu5">
             <objects>
-                <viewController id="97I-ZR-5g3" sceneMemberID="viewController">
+                <viewController id="97I-ZR-5g3" customClass="HomeViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fRe-2k-cQ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
         <!--Playlists-->
         <scene sceneID="zyn-pq-9Vf">
             <objects>
-                <viewController id="spw-Dc-AOt" sceneMemberID="viewController">
+                <viewController id="spw-Dc-AOt" customClass="PlaylistsViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTL-AZ-21d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
         <!--Artists-->
         <scene sceneID="Gur-hG-nKa">
             <objects>
-                <viewController id="Trj-Si-mOq" sceneMemberID="viewController">
+                <viewController id="Trj-Si-mOq" customClass="ArtistsViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cD4-Ff-e5v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
