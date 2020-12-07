@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VYg-Fs-lfb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="crE-dP-Hu5">
+            <objects>
+                <viewController id="97I-ZR-5g3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fRe-2k-cQ2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wYn-af-ZPH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="music.note.house" catalog="system" id="FNf-y8-xfx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blq-yb-xS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="436"/>
+        </scene>
+        <!--Playlists-->
+        <scene sceneID="zyn-pq-9Vf">
+            <objects>
+                <viewController id="spw-Dc-AOt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hTL-AZ-21d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="j4E-Hl-RRt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Playlists" image="music.note.list" catalog="system" id="fuW-gq-Qle"/>
+                    <navigationItem key="navigationItem" id="dzK-cr-Wkg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OXu-Ha-OgU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1741" y="436"/>
+        </scene>
+        <!--Artists-->
+        <scene sceneID="Gur-hG-nKa">
+            <objects>
+                <viewController id="Trj-Si-mOq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cD4-Ff-e5v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cwi-X7-vtH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Artists" image="music.mic" catalog="system" id="m4t-GL-S6a"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUj-w0-a8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864" y="436"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xgN-7K-D7x">
+            <objects>
+                <tabBarController id="VYg-Fs-lfb" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LfJ-S8-vPp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Trj-Si-mOq" kind="relationship" relationship="viewControllers" id="ld9-ii-bkr"/>
+                        <segue destination="97I-ZR-5g3" kind="relationship" relationship="viewControllers" id="nnq-K6-9j6"/>
+                        <segue destination="spw-Dc-AOt" kind="relationship" relationship="viewControllers" id="Stp-FC-jIv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3U4-BP-PTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864" y="-367"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="music.mic" catalog="system" width="128" height="121"/>
+        <image name="music.note.house" catalog="system" width="128" height="106"/>
+        <image name="music.note.list" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

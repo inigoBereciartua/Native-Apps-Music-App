@@ -12,9 +12,10 @@
 		B70733BA256BCF6F0094DF51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70733B9256BCF6F0094DF51 /* ContentView.swift */; };
 		B70733BC256BCF980094DF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70733BB256BCF980094DF51 /* Assets.xcassets */; };
 		B70733BF256BCF980094DF51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70733BE256BCF980094DF51 /* Preview Assets.xcassets */; };
-		B70733C2256BCF980094DF51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70733C0256BCF980094DF51 /* LaunchScreen.storyboard */; };
+		B70733C2256BCF980094DF51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70733C0256BCF980094DF51 /* Main.storyboard */; };
 		B70733CD256BCF9B0094DF51 /* Native_Apps_Music_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70733CC256BCF9B0094DF51 /* Native_Apps_Music_AppTests.swift */; };
 		B70733D8256BCF9B0094DF51 /* Native_Apps_Music_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70733D7256BCF9B0094DF51 /* Native_Apps_Music_AppUITests.swift */; };
+		B70733FF256BDCFF0094DF51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70733FE256BDCFF0094DF51 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 		B70733B9256BCF6F0094DF51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B70733BB256BCF980094DF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B70733BE256BCF980094DF51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B70733C1256BCF980094DF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B70733C1256BCF980094DF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B70733C3256BCF980094DF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B70733C8256BCF9B0094DF51 /* Native Apps Music AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Native Apps Music AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70733CC256BCF9B0094DF51 /* Native_Apps_Music_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Native_Apps_Music_AppTests.swift; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		B70733D3256BCF9B0094DF51 /* Native Apps Music AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Native Apps Music AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70733D7256BCF9B0094DF51 /* Native_Apps_Music_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Native_Apps_Music_AppUITests.swift; sourceTree = "<group>"; };
 		B70733D9256BCF9B0094DF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B70733FE256BDCFF0094DF51 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 				B70733B7256BCF6F0094DF51 /* SceneDelegate.swift */,
 				B70733B9256BCF6F0094DF51 /* ContentView.swift */,
 				B70733BB256BCF980094DF51 /* Assets.xcassets */,
-				B70733C0256BCF980094DF51 /* LaunchScreen.storyboard */,
+				B70733C0256BCF980094DF51 /* Main.storyboard */,
+				B70733FE256BDCFF0094DF51 /* LaunchScreen.storyboard */,
 				B70733C3256BCF980094DF51 /* Info.plist */,
 				B70733BD256BCF980094DF51 /* Preview Content */,
 			);
@@ -239,7 +242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B70733C2256BCF980094DF51 /* LaunchScreen.storyboard in Resources */,
+				B70733C2256BCF980094DF51 /* Main.storyboard in Resources */,
+				B70733FF256BDCFF0094DF51 /* LaunchScreen.storyboard in Resources */,
 				B70733BF256BCF980094DF51 /* Preview Assets.xcassets in Resources */,
 				B70733BC256BCF980094DF51 /* Assets.xcassets in Resources */,
 			);
@@ -304,12 +308,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B70733C0256BCF980094DF51 /* LaunchScreen.storyboard */ = {
+		B70733C0256BCF980094DF51 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B70733C1256BCF980094DF51 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -438,6 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Native Apps Music App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6TV9KZWDRM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Native Apps Music App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -458,6 +463,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Native Apps Music App/Preview Content\"";
+				DEVELOPMENT_TEAM = 6TV9KZWDRM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Native Apps Music App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
