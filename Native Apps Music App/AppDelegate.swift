@@ -14,8 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        /*
-         Firebase documentation: https://console.firebase.google.com/u/0/project/native-apps-ii--ios/overview?hl=es-419*/
+        //SOURCE: https://console.firebase.google.com/u/0/project/native-apps-ii--ios/overview?hl=es-419
         FirebaseApp.configure()
         return true
     }
