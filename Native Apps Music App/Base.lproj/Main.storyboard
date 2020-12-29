@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VYg-Fs-lfb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VYg-Fs-lfb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,23 +11,63 @@
         <!--Home-->
         <scene sceneID="crE-dP-Hu5">
             <objects>
-                <viewController id="97I-ZR-5g3" customClass="HomeViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="97I-ZR-5g3" customClass="HomeViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fRe-2k-cQ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pf-sg-I6T">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-ad-dvE">
+                                        <rect key="frame" x="8" y="362" width="217" height="76"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="63"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-bi-q3n">
+                                        <rect key="frame" x="8" y="8" width="171" height="76"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="63"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QGU-ad-dvE" secondAttribute="bottom" constant="331" id="0ZU-Eu-2vI"/>
+                                    <constraint firstItem="4l4-bi-q3n" firstAttribute="top" secondItem="3pf-sg-I6T" secondAttribute="topMargin" id="GoY-yt-pph"/>
+                                    <constraint firstAttribute="trailing" secondItem="4l4-bi-q3n" secondAttribute="trailing" constant="235" id="Ik3-QO-wNK"/>
+                                    <constraint firstItem="4l4-bi-q3n" firstAttribute="leading" secondItem="QGU-ad-dvE" secondAttribute="leading" id="Mpc-El-u8Y"/>
+                                    <constraint firstItem="pnk-GV-k2s" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QGU-ad-dvE" secondAttribute="trailing" symbolic="YES" id="c5T-DT-Ovj"/>
+                                    <constraint firstItem="QGU-ad-dvE" firstAttribute="centerY" secondItem="3pf-sg-I6T" secondAttribute="centerY" constant="15.5" id="foL-oc-nJu"/>
+                                    <constraint firstItem="QGU-ad-dvE" firstAttribute="leading" secondItem="3pf-sg-I6T" secondAttribute="leadingMargin" id="qAb-ZP-75T"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="xsB-Yt-QBo"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="pnk-GV-k2s"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wYn-af-ZPH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3pf-sg-I6T" firstAttribute="top" secondItem="wYn-af-ZPH" secondAttribute="top" id="NWM-Wa-Int"/>
+                            <constraint firstItem="wYn-af-ZPH" firstAttribute="bottom" secondItem="3pf-sg-I6T" secondAttribute="bottom" id="OA1-4w-i1u"/>
+                            <constraint firstItem="3pf-sg-I6T" firstAttribute="bottom" secondItem="wYn-af-ZPH" secondAttribute="bottom" id="Ued-Pe-9iL"/>
+                            <constraint firstItem="3pf-sg-I6T" firstAttribute="trailing" secondItem="wYn-af-ZPH" secondAttribute="trailing" id="YSc-G9-JcW"/>
+                            <constraint firstItem="3pf-sg-I6T" firstAttribute="leading" secondItem="wYn-af-ZPH" secondAttribute="leading" id="rmB-Ce-MO0"/>
+                            <constraint firstAttribute="bottom" secondItem="3pf-sg-I6T" secondAttribute="bottom" constant="83" id="wn0-MA-5gt"/>
+                            <constraint firstItem="3pf-sg-I6T" firstAttribute="trailing" secondItem="wYn-af-ZPH" secondAttribute="trailing" id="z2s-B7-uto"/>
+                            <constraint firstItem="3pf-sg-I6T" firstAttribute="leading" secondItem="wYn-af-ZPH" secondAttribute="leading" id="z6Y-Wo-P90"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="music.note.house" catalog="system" id="FNf-y8-xfx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blq-yb-xS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="436"/>
+            <point key="canvasLocation" x="50.724637681159422" y="435.9375"/>
         </scene>
         <!--Playlists-->
         <scene sceneID="zyn-pq-9Vf">
             <objects>
-                <viewController id="spw-Dc-AOt" customClass="PlaylistsViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaylistsViewController" id="spw-Dc-AOt" customClass="PlaylistsViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTL-AZ-21d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +84,7 @@
         <!--Artists-->
         <scene sceneID="Gur-hG-nKa">
             <objects>
-                <viewController id="Trj-Si-mOq" customClass="ArtistsViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArtistsViewController" id="Trj-Si-mOq" customClass="ArtistsViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cD4-Ff-e5v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +100,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xgN-7K-D7x">
             <objects>
-                <tabBarController id="VYg-Fs-lfb" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarStoryboard" id="VYg-Fs-lfb" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LfJ-S8-vPp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
