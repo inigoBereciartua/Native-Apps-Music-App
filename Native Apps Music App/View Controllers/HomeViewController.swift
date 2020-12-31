@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
 
     @IBOutlet weak var artistsCollectionView: UICollectionView!
     
@@ -29,25 +28,36 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     let artistData = artistDocument.data()
                     let artistName: String = artistData["Name"]! as! String
                     let photoUrl: URL = URL(string: artistData["Photo"]! as! String)!
-                    //SOURCE: https://www.youtube.com/watch?v=pxwJazyrhkY
-                    URLSession.shared.dataTask(with: photoUrl) { data, _, error in
-                        guard let data = data else{
-                            return
-                        }
-                        DispatchQueue.main.async{
-                            self.imageView = UIImage(data:data)!
-                        }
+                    
+                    let data = try? Data(contentsOf: photoUrl)
+                    var photo = UIImage()
+                    if(data != nil){
+                        photo = UIImage(data: data!)!
                     }
                     
-                    let artist = Artist(name: artistName, photo: self.imageView)
+                    let artist = Artist(name: artistName, photo: photo)
+                    //SOURCE: https://www.youtube.com/watch?v=pxwJazyrhkY
+                    URLSession.shared.dataTask(with: photoUrl) { data, _, error in
+                        print("IBI")
+                        guard let data = data else{
+                            
+                            return
+                        }
+                        DispatchQueue.main.async(){
+                            artist.photo = UIImage(data:data)!
+                            
+                        }
+                        
+                        
+                    }
                     self.artists.append(artist)
-                    self.artistsCollectionView.reloadData()
+                    
                 }
+                self.artistsCollectionView.reloadData()
             }
         }
     }
-    
-    
+        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.artists.count
     }
@@ -55,10 +65,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let artist = self.artists[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Artist", for: indexPath) as! ArtistsCollectionViewCell
-        
         cell.artistName.text = artist.name
         cell.artistPhoto.image = artist.photo
-        print(artist.description)
+        
         return cell
     }
     

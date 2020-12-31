@@ -16,6 +16,7 @@ class Artist: Equatable{
         self.photo = photo
     }
     
+    
     var description: String {
         return "Artist(name: \(self.name)"
     }
