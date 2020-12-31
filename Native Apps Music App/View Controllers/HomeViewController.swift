@@ -8,11 +8,16 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
 
+    @IBOutlet weak var playlistsTableView: UITableView!
     @IBOutlet weak var artistsCollectionView: UICollectionView!
     
     var artists: [Artist] = []
+    var playlists: [Playlist] = []
     var imageView: UIImage = UIImage()
     
     override func viewDidLoad() {
@@ -34,26 +39,23 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     if(data != nil){
                         photo = UIImage(data: data!)!
                     }
-                    
                     let artist = Artist(name: artistName, photo: photo)
-                    //SOURCE: https://www.youtube.com/watch?v=pxwJazyrhkY
-                    URLSession.shared.dataTask(with: photoUrl) { data, _, error in
-                        print("IBI")
-                        guard let data = data else{
-                            
-                            return
-                        }
-                        DispatchQueue.main.async(){
-                            artist.photo = UIImage(data:data)!
-                            
-                        }
-                        
-                        
-                    }
                     self.artists.append(artist)
-                    
                 }
                 self.artistsCollectionView.reloadData()
+                db.collection("Playlists").getDocuments(){(querySnapshot, err) in
+                    if let err = err{
+                        print("Error getting documents: \(err)")
+                    }else{
+                        for playlistDocument in querySnapshot!.documents{
+                            let playlistData = playlistDocument.data()
+                            let playlistName : String = playlistData["Name"] as! String
+                            let playlist = Playlist(name: playlistName)
+                            self.playlists.append(playlist)
+                        }
+                    }
+                    self.playlistsTableView.reloadData()
+                }
             }
         }
     }
@@ -71,5 +73,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         return cell
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.playlists.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let playlist : Playlist = self.playlists[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Playlist", for: indexPath)
+        cell.textLabel?.text = playlist.name
+        return cell
+    }
 }
