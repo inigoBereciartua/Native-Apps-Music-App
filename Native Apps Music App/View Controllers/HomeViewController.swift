@@ -42,22 +42,23 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     let artist = Artist(id: artistId, name: artistName, photo: photo)
                     self.artists.append(artist)
                 }
-                self.artistsCollectionView.reloadData()
-                db.collection("Playlists").getDocuments(){(querySnapshot, err) in
-                    if let err = err{
-                        print("Error getting documents: \(err)")
-                    }else{
-                        for playlistDocument in querySnapshot!.documents{
-                            let playlistData = playlistDocument.data()
-                            let playlistName : String = playlistData["Name"] as! String
-                            let playlist = Playlist(name: playlistName)
-                            self.playlists.append(playlist)
-                        }
-                    }
-                    self.playlistsTableView.reloadData()
+            }
+            self.artistsCollectionView.reloadData()
+        }
+        
+        db.collection("Playlists").getDocuments(){(querySnapshot, err) in
+            if let err = err{
+                print("Error getting documents: \(err)")
+            }else{
+                for playlistDocument in querySnapshot!.documents{
+                    let playlistData = playlistDocument.data()
+                    let playlistName : String = playlistData["Name"] as! String
+                    let playlist = Playlist(name: playlistName)
+                    self.playlists.append(playlist)
                 }
             }
-        }
+            self.playlistsTableView.reloadData()
+        }                    
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

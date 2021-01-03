@@ -287,15 +287,66 @@
                     <view key="view" contentMode="scaleToFill" id="hTL-AZ-21d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bTF-Ij-GRV">
+                                <rect key="frame" x="0.0" y="84" width="414" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="center" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New playlist name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nc-mH-FF4" userLabel="New Playlist Name Input">
+                                        <rect key="frame" x="134.5" y="0.0" width="145.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doI-Yf-W2I">
+                                        <rect key="frame" x="158" y="34" width="98" height="30"/>
+                                        <state key="normal" title="Create playlist"/>
+                                        <connections>
+                                            <action selector="createPlaylist:" destination="spw-Dc-AOt" eventType="touchUpInside" id="UMM-G0-lrZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hXD-qx-ie6" userLabel="Playlists Table View">
+                                <rect key="frame" x="0.0" y="194" width="414" height="508"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Playlist" id="K0y-XQ-3Lu">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K0y-XQ-3Lu" id="0BN-YU-8jm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="spw-Dc-AOt" id="gjG-da-WpW"/>
+                                    <outlet property="delegate" destination="spw-Dc-AOt" id="I05-ru-wei"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="j4E-Hl-RRt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="j4E-Hl-RRt" firstAttribute="trailing" secondItem="bTF-Ij-GRV" secondAttribute="trailing" id="71o-17-KJa"/>
+                            <constraint firstItem="hXD-qx-ie6" firstAttribute="centerY" secondItem="hTL-AZ-21d" secondAttribute="centerY" id="HXC-ye-icS"/>
+                            <constraint firstItem="bTF-Ij-GRV" firstAttribute="trailing" secondItem="hXD-qx-ie6" secondAttribute="trailing" id="HdG-1K-5Zt"/>
+                            <constraint firstItem="bTF-Ij-GRV" firstAttribute="top" secondItem="j4E-Hl-RRt" secondAttribute="top" constant="40" id="Prv-zk-uVB"/>
+                            <constraint firstItem="bTF-Ij-GRV" firstAttribute="trailing" secondItem="j4E-Hl-RRt" secondAttribute="trailing" id="SsG-c7-dRf"/>
+                            <constraint firstItem="hXD-qx-ie6" firstAttribute="top" secondItem="j4E-Hl-RRt" secondAttribute="top" constant="150" id="XZH-GO-bMJ"/>
+                            <constraint firstItem="bTF-Ij-GRV" firstAttribute="leading" secondItem="j4E-Hl-RRt" secondAttribute="leading" id="fE5-Rc-QXi"/>
+                            <constraint firstItem="bTF-Ij-GRV" firstAttribute="leading" secondItem="hXD-qx-ie6" secondAttribute="leading" id="mZG-kM-bV5"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Playlists" image="music.note.list" catalog="system" id="fuW-gq-Qle"/>
                     <navigationItem key="navigationItem" id="dzK-cr-Wkg"/>
+                    <connections>
+                        <outlet property="newPlaylistInput" destination="9nc-mH-FF4" id="JCD-LM-3nG"/>
+                        <outlet property="playlistsTableView" destination="hXD-qx-ie6" id="oCh-r0-vJg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXu-Ha-OgU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741" y="436"/>
+            <point key="canvasLocation" x="1740.5797101449277" y="435.9375"/>
         </scene>
         <!--Artists-->
         <scene sceneID="Gur-hG-nKa">
