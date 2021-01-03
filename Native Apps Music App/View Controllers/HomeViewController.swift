@@ -11,13 +11,12 @@ import Firebase
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  UITableViewDataSource, UITableViewDelegate {
     
     
-    
-
     @IBOutlet weak var playlistsTableView: UITableView!
     @IBOutlet weak var artistsCollectionView: UICollectionView!
     
     var artists: [Artist] = []
     var playlists: [Playlist] = []
+    var songs: [Song] = []
     var imageView: UIImage = UIImage()
     
     override func viewDidLoad() {
@@ -31,6 +30,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 self.artists = []
                 for artistDocument in querySnapshot!.documents {
                     let artistData = artistDocument.data()
+                    let artistId:String = artistDocument.documentID
                     let artistName: String = artistData["Name"]! as! String
                     let photoUrl: URL = URL(string: artistData["Photo"]! as! String)!
                     
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     if(data != nil){
                         photo = UIImage(data: data!)!
                     }
-                    let artist = Artist(name: artistName, photo: photo)
+                    let artist = Artist(id: artistId, name: artistName, photo: photo)
                     self.artists.append(artist)
                 }
                 self.artistsCollectionView.reloadData()
@@ -71,6 +71,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.artistPhoto.image = artist.photo
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let artist = self.artists[indexPath.row]
+        
+        let artistVc = (storyboard?.instantiateViewController(identifier: "Artist"))! as ArtistViewController
+        artistVc.artist = artist
+        present(artistVc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
