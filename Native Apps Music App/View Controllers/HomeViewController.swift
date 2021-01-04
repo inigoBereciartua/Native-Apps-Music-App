@@ -46,14 +46,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.artistsCollectionView.reloadData()
         }
         
-        db.collection("Playlists").getDocuments(){(querySnapshot, err) in
+        db.collection("Playlists").addSnapshotListener{(querySnapshot, err) in
+            self.playlists = []
             if let err = err{
                 print("Error getting documents: \(err)")
             }else{
                 for playlistDocument in querySnapshot!.documents{
                     let playlistData = playlistDocument.data()
+                    let playlistId = playlistDocument.documentID
                     let playlistName : String = playlistData["Name"] as! String
-                    let playlist = Playlist(name: playlistName)
+                    let playlist = Playlist(id: playlistId, name: playlistName)
                     self.playlists.append(playlist)
                 }
             }

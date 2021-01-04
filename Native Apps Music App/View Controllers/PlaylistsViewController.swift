@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import Toast_Swift
 
 class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
         
@@ -25,12 +26,12 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
             }else{
                 for playlistDocument in querySnapshot!.documents{
                     let playlistData = playlistDocument.data()
+                    let playlistId = playlistDocument.documentID
                     let playlistName : String = playlistData["Name"] as! String
-                    let playlist = Playlist(name: playlistName)
+                    let playlist = Playlist(id: playlistId, name: playlistName)
                     self.playlists.append(playlist)
                 }
             }
-            print(self.playlists.count)
             self.playlistsTableView.reloadData()
         }   
     }
@@ -45,27 +46,40 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
         cell.textLabel?.text = playlist.name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let playlist = self.playlists[indexPath.row]
+        
+        let playlistVc = (storyboard?.instantiateViewController(identifier: "Playlist"))! as PlaylistViewController
+        playlistVc.playlist = playlist
+        present(playlistVc, animated: true)
+    }
+    
 
     @IBAction func createPlaylist(_ sender: UIButton) {
-        print("Click!")
-        print(self.newPlaylistInput.text!)
+        
         let newPlaylistName = newPlaylistInput.text
         if(newPlaylistName == ""){
             
         }else{
-            let playlist = Playlist(name: newPlaylistName!)
-            self.playlists.append(playlist)
-            self.playlistsTableView.reloadData()
-            self.newPlaylistInput.text = ""
+             
             let db = Firestore.firestore()
-            db.collection("Playlists").addDocument(data: [
+            var ref: DocumentReference? = nil
+            
+            ref = db.collection("Playlists").addDocument(data: [
                 "Name":newPlaylistName!
             ])
             {err in
                 if let err = err{
                     print("Error adding document : \(err)")
+                    self.view.makeToast("An error has ocurred creating the playlist")
                 } else {
-                    print("Document added correctly" )
+                    let playlistId = ref!.documentID
+                    let playlist = Playlist(id: playlistId, name: newPlaylistName!)
+                    self.playlists.append(playlist)
+                    self.playlistsTableView.reloadData()
+                    self.view.makeToast("Playlist has been created successfully")
+                    self.newPlaylistInput.text = ""
                 }
             }
         }

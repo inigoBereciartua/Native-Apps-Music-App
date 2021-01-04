@@ -55,6 +55,47 @@
             </objects>
             <point key="canvasLocation" x="409" y="1237"/>
         </scene>
+        <!--Playlist-->
+        <scene sceneID="1Le-Sr-Bhu">
+            <objects>
+                <viewController storyboardIdentifier="Playlist" title="Playlist" id="Vnx-5d-DNH" customClass="PlaylistViewController" customModule="Native_Apps_Music_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJO-aZ-eLf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-Wj-C8e" userLabel="Songs Table View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Song" id="oFf-wK-z7p">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oFf-wK-z7p" id="fBb-gP-zUR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vnx-5d-DNH" id="UD3-fj-wCm"/>
+                                    <outlet property="delegate" destination="Vnx-5d-DNH" id="m49-JN-Ubp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uqw-ZN-lrw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uqw-ZN-lrw" firstAttribute="bottom" secondItem="D4q-Wj-C8e" secondAttribute="bottom" id="78d-7N-i5y"/>
+                            <constraint firstItem="uqw-ZN-lrw" firstAttribute="trailing" secondItem="D4q-Wj-C8e" secondAttribute="trailing" id="BY1-3B-7zX"/>
+                            <constraint firstItem="D4q-Wj-C8e" firstAttribute="leading" secondItem="uqw-ZN-lrw" secondAttribute="leading" id="Dt8-MT-VCg"/>
+                            <constraint firstItem="D4q-Wj-C8e" firstAttribute="top" secondItem="uqw-ZN-lrw" secondAttribute="top" id="Ol9-MI-MWu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcI-vI-S2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1291" y="1237"/>
+        </scene>
         <!--Player-->
         <scene sceneID="NRz-XL-ZEy">
             <objects>
@@ -135,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMG-ci-LlN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1270" y="1700"/>
+            <point key="canvasLocation" x="913" y="1928"/>
         </scene>
         <!--Home-->
         <scene sceneID="crE-dP-Hu5">

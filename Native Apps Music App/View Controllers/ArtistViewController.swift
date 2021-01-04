@@ -29,9 +29,10 @@ class ArtistViewController: UIViewController,  UITableViewDataSource, UITableVie
                 self.songs = []
                 for songDocument in querySnapshot!.documents {
                     let songData = songDocument.data()
+                    let songId = songDocument.documentID
                     let songName: String = songData["Name"]! as! String
                     let songUrl: URL = URL(string: "www.google.com")!
-                    let song: Song = Song(name: songName, songURL: songUrl, artist: self.artist)
+                    let song: Song = Song(id: songId, name: songName, songURL: songUrl, artist: self.artist)
                     self.songs.append(song)
                 }
                 print(self.songs.count)
