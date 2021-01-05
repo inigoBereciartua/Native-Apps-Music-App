@@ -60,7 +60,7 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
         
         let newPlaylistName = newPlaylistInput.text
         if(newPlaylistName == ""){
-            
+            self.view.makeToast("Playlist name can't be empty")
         }else{
              
             let db = Firestore.firestore()

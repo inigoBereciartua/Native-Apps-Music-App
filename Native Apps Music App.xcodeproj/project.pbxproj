@@ -25,9 +25,10 @@
 		B7523E1125A1FBA1008964EA /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7523E1025A1FBA1008964EA /* PlayerViewController.swift */; };
 		B75B9817257ECB4A0036C8C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75B9816257ECB4A0036C8C5 /* HomeViewController.swift */; };
 		B75B981C257ECBAB0036C8C5 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75B981B257ECBAB0036C8C5 /* PlaylistsViewController.swift */; };
-		B75B9821257ECBC00036C8C5 /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75B9820257ECBC00036C8C5 /* ArtistsViewController.swift */; };
 		B7E32BEC259D595400E23991 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E32BEB259D595400E23991 /* Playlist.swift */; };
 		B7FC182525A3A6420004BB92 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC182425A3A6420004BB92 /* PlaylistViewController.swift */; };
+		B7FC182A25A3C65D0004BB92 /* AddSongToPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC182925A3C65D0004BB92 /* AddSongToPlaylistViewController.swift */; };
+		B7FC183525A3E83A0004BB92 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC183425A3E83A0004BB92 /* SongsViewController.swift */; };
 		ED5F2F6ABDA38D89CDECE962 /* Pods_Native_Apps_Music_App_Native_Apps_Music_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB84FB10ED2DED215A149CD /* Pods_Native_Apps_Music_App_Native_Apps_Music_AppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,9 +78,10 @@
 		B7523E1025A1FBA1008964EA /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B75B9816257ECB4A0036C8C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B75B981B257ECBAB0036C8C5 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
-		B75B9820257ECBC00036C8C5 /* ArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		B7E32BEB259D595400E23991 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B7FC182425A3A6420004BB92 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		B7FC182925A3C65D0004BB92 /* AddSongToPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongToPlaylistViewController.swift; sourceTree = "<group>"; };
+		B7FC183425A3E83A0004BB92 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
 		C691B2BD44DFF78999617F85 /* Pods-Native Apps Music AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Native Apps Music AppTests.debug.xcconfig"; path = "Target Support Files/Pods-Native Apps Music AppTests/Pods-Native Apps Music AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C81C345327FA89C6D703D633 /* Pods-Native Apps Music App-Native Apps Music AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Native Apps Music App-Native Apps Music AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Native Apps Music App-Native Apps Music AppUITests/Pods-Native Apps Music App-Native Apps Music AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD5188DD40603ECEA0ADA576 /* Pods-Native Apps Music App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Native Apps Music App.release.xcconfig"; path = "Target Support Files/Pods-Native Apps Music App/Pods-Native Apps Music App.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,10 +227,11 @@
 				B717EB46259B95AA00DD5F00 /* View Cells */,
 				B75B9816257ECB4A0036C8C5 /* HomeViewController.swift */,
 				B75B981B257ECBAB0036C8C5 /* PlaylistsViewController.swift */,
-				B75B9820257ECBC00036C8C5 /* ArtistsViewController.swift */,
 				B7523E0B25A1D50F008964EA /* ArtistViewController.swift */,
 				B7523E1025A1FBA1008964EA /* PlayerViewController.swift */,
 				B7FC182425A3A6420004BB92 /* PlaylistViewController.swift */,
+				B7FC182925A3C65D0004BB92 /* AddSongToPlaylistViewController.swift */,
+				B7FC183425A3E83A0004BB92 /* SongsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -480,11 +483,12 @@
 				B717EB48259B95F300DD5F00 /* ArtistsCollectionViewCell.swift in Sources */,
 				B70733B6256BCF6F0094DF51 /* AppDelegate.swift in Sources */,
 				B70733B8256BCF6F0094DF51 /* SceneDelegate.swift in Sources */,
-				B75B9821257ECBC00036C8C5 /* ArtistsViewController.swift in Sources */,
 				B7FC182525A3A6420004BB92 /* PlaylistViewController.swift in Sources */,
 				B75B9817257ECB4A0036C8C5 /* HomeViewController.swift in Sources */,
+				B7FC182A25A3C65D0004BB92 /* AddSongToPlaylistViewController.swift in Sources */,
 				B7523E1125A1FBA1008964EA /* PlayerViewController.swift in Sources */,
 				B7523E0C25A1D50F008964EA /* ArtistViewController.swift in Sources */,
+				B7FC183525A3E83A0004BB92 /* SongsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
