@@ -15,7 +15,7 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
     
     @IBOutlet weak var playlistsTableView: UITableView!
     var playlists:[Playlist] = []
-    
+    var playlistNames: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +40,7 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
                     }else{
                         playlist = Playlist(id: playlistId, name: playlistName)
                     }
+                    self.playlistNames.append(playlistName)
                     self.playlists.append(playlist)
                 }
             }
@@ -73,6 +74,8 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
         let newPlaylistName = newPlaylistInput.text
         if(newPlaylistName == ""){
             self.view.makeToast("Playlist name can't be empty")
+        }else if(self.playlistNames.contains(newPlaylistName!)){
+            self.view.makeToast("That playlist name is already in use")
         }else{
              
             let db = Firestore.firestore()
@@ -89,6 +92,7 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
                 } else {
                     let playlistId = ref!.documentID
                     let playlist = Playlist(id: playlistId, name: newPlaylistName!)
+                    self.playlistNames.append(newPlaylistName!)
                     self.playlists.append(playlist)
                     self.playlistsTableView.reloadData()
                     self.view.makeToast("Playlist has been created successfully")
