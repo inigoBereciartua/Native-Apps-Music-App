@@ -14,7 +14,6 @@ class PlayerViewController: UIViewController {
     
     @IBOutlet weak var previousSong: UIButton!
     @IBOutlet weak var nextSong: UIButton!
-    @IBOutlet weak var playPause: UIButton!
     
     public var image : UIImage = UIImage()
     public var songs: [Song] = []

@@ -133,15 +133,11 @@
                                                     <action selector="previousClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="X1K-yB-rrL"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-AT-a1c">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDn-1b-JWV">
                                                 <rect key="frame" x="60.5" y="20.5" width="53" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="PlayPause" image="pause.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="onClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="s2F-Xh-dx3"/>
-                                                    <action selector="playPauseClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="5yj-JX-bUL"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v37-1W-X3d">
                                                 <rect key="frame" x="121.5" y="21" width="52.5" height="22"/>
@@ -182,7 +178,6 @@
                     </view>
                     <connections>
                         <outlet property="nextSong" destination="v37-1W-X3d" id="xyl-hZ-0MI"/>
-                        <outlet property="playPause" destination="NgX-AT-a1c" id="HEb-Xa-MW9"/>
                         <outlet property="previousSong" destination="R5T-TH-d59" id="yBK-Ti-5Bn"/>
                         <outlet property="songName" destination="0gz-cz-Z9n" id="ga1-ZR-ndH"/>
                         <outlet property="songPhoto" destination="BBQ-1S-EGK" id="lIO-k9-KGP"/>

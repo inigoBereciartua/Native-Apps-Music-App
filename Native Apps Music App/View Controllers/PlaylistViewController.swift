@@ -30,8 +30,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
                     if(songPlaylists.contains(self.playlist.id)){
                         let songId = songDocument.documentID
                         let songName: String = songData["Name"]! as! String
-                        let songUrl: URL = URL(string: "www.google.com")!
-                        let song: Song = Song(id: songId, name: songName, songURL: songUrl, artist: Artist(), playlists: songPlaylists)
+                        let song: Song = Song(id: songId, name: songName, artist: Artist(), playlists: songPlaylists)
                         self.songs.append(song)
                     }
                     

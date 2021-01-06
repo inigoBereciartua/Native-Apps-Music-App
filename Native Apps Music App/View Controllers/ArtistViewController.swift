@@ -31,8 +31,7 @@ class ArtistViewController: UIViewController,  UITableViewDataSource, UITableVie
                     let songData = songDocument.data()
                     let songId = songDocument.documentID
                     let songName: String = songData["Name"]! as! String
-                    let songUrl: URL = URL(string: "www.google.com")!
-                    let song: Song = Song(id: songId, name: songName, songURL: songUrl, artist: self.artist, playlists: [])
+                    let song: Song = Song(id: songId, name: songName, artist: self.artist, playlists: [])
                     self.songs.append(song)
                 }
             }
