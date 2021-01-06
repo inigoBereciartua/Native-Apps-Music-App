@@ -55,7 +55,21 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                     let playlistData = playlistDocument.data()
                     let playlistId = playlistDocument.documentID
                     let playlistName : String = playlistData["Name"] as! String
-                    let playlist = Playlist(id: playlistId, name: playlistName)
+                    let playlist : Playlist
+                    
+                    if(playlistData["Photo"] != nil){
+                        let playlistPhotoUrl = URL(string: playlistData["Photo"] as! String)
+                        let data = try? Data(contentsOf: playlistPhotoUrl!)
+                        var photo = UIImage()
+                        if(data != nil){
+                            photo = UIImage(data: data!)!
+                        }
+                        playlist = Playlist(id: playlistId, name: playlistName, photo: photo)
+                    }else{
+                        playlist = Playlist(id: playlistId, name: playlistName)
+                    }
+                    
+                    
                     self.playlists.append(playlist)
                 }
             }
@@ -92,5 +106,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = tableView.dequeueReusableCell(withIdentifier: "Playlist", for: indexPath)
         cell.textLabel?.text = playlist.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let playlist = self.playlists[indexPath.row]
+
+        let playlistVc = (storyboard?.instantiateViewController(identifier: "Playlist"))! as PlaylistViewController
+        playlistVc.playlist = playlist
+        present(playlistVc, animated: true)
     }
 }

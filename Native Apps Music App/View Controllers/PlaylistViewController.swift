@@ -53,6 +53,14 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         print(song.name)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let playerVc = (storyboard?.instantiateViewController(identifier: "Player"))! as PlayerViewController
+        playerVc.index = index
+        playerVc.songs = self.songs
+        playerVc.image = self.playlist.photo
+        present(playerVc, animated: true)
+    }
     
 
 

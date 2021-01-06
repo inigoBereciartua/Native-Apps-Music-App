@@ -35,7 +35,6 @@ class ArtistViewController: UIViewController,  UITableViewDataSource, UITableVie
                     let song: Song = Song(id: songId, name: songName, songURL: songUrl, artist: self.artist, playlists: [])
                     self.songs.append(song)
                 }
-                print(self.songs.count)
             }
             self.songsTableView.reloadData()
         }
@@ -58,6 +57,7 @@ class ArtistViewController: UIViewController,  UITableViewDataSource, UITableVie
         let playerVc = (storyboard?.instantiateViewController(identifier: "Player"))! as PlayerViewController
         playerVc.index = index
         playerVc.songs = self.songs
+        playerVc.image = self.artist.photo
         present(playerVc, animated: true)
     }
     

@@ -53,4 +53,12 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let playerVc = (storyboard?.instantiateViewController(identifier: "Player"))! as PlayerViewController
+        playerVc.index = index
+        playerVc.songs = self.songs
+        playerVc.image = UIImage(named: "song")!
+        present(playerVc, animated: true)
+    }
 }

@@ -28,7 +28,18 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
                     let playlistData = playlistDocument.data()
                     let playlistId = playlistDocument.documentID
                     let playlistName : String = playlistData["Name"] as! String
-                    let playlist = Playlist(id: playlistId, name: playlistName)
+                    var playlist: Playlist = Playlist()
+                    if(playlistData["Photo"] != nil){
+                        let playlistPhotoUrl = URL(string: playlistData["Photo"] as! String)
+                        let data = try? Data(contentsOf: playlistPhotoUrl!)
+                        var photo = UIImage()
+                        if(data != nil){
+                            photo = UIImage(data: data!)!
+                        }
+                        playlist = Playlist(id: playlistId, name: playlistName, photo: photo)
+                    }else{
+                        playlist = Playlist(id: playlistId, name: playlistName)
+                    }
                     self.playlists.append(playlist)
                 }
             }
@@ -44,6 +55,7 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
         let playlist : Playlist = self.playlists[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Playlist", for: indexPath)
         cell.textLabel?.text = playlist.name
+        cell.imageView?.image = playlist.photo
         return cell
     }
     
@@ -67,7 +79,8 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
             var ref: DocumentReference? = nil
             
             ref = db.collection("Playlists").addDocument(data: [
-                "Name":newPlaylistName!
+                "Name":newPlaylistName!,
+                "Songs": []
             ])
             {err in
                 if let err = err{

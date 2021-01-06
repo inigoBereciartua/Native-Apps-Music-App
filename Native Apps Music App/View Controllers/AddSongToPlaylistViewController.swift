@@ -15,6 +15,7 @@ class AddSongToPlaylistViewController: UIViewController, UITableViewDelegate, UI
     var song: Song = Song()
 
     @IBOutlet weak var playlistsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let db = Firestore.firestore()
@@ -26,7 +27,7 @@ class AddSongToPlaylistViewController: UIViewController, UITableViewDelegate, UI
                 let songData = document?.data()
                 let songPlaylists: [String] = songData!["Playlists"] as! [String]
                 
-                db.collection("Playlists").addSnapshotListener{(querySnapshot, err) in
+                db.collection("Playlists").getDocuments(){(querySnapshot, err) in
                     self.playlists = []
                     if let err = err{
                         print("Error getting documents: \(err)")
@@ -89,10 +90,10 @@ class AddSongToPlaylistViewController: UIViewController, UITableViewDelegate, UI
                 playlistDoc.updateData(["Songs": playlistSongs])
                 self.view.makeToast("The song has been added to the playlist successfully")
                 self.playlists.remove(at: indexPath.row)
-                                        
+                self.playlistsTableView.reloadData()
             }
         }
-        self.playlistsTableView.reloadData()
+        
         
     }
     
