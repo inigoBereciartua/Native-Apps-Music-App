@@ -122,18 +122,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etL-gp-2qP">
-                                        <rect key="frame" x="81" y="324" width="132" height="22"/>
-                                        <state key="normal" title="Add to playlist" image="plus" catalog="system"/>
-                                        <connections>
-                                            <action selector="addToPlaylistClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="Pc3-dE-qwT"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="center" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qcr-H0-s4R">
-                                        <rect key="frame" x="60" y="354" width="174" height="64"/>
+                                        <rect key="frame" x="60" y="324" width="174" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5T-TH-d59">
                                                 <rect key="frame" x="0.0" y="21" width="52.5" height="22"/>
+                                                <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="PreviousSong" image="backward.end.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="previousClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="X1K-yB-rrL"/>
@@ -142,6 +136,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgX-AT-a1c">
                                                 <rect key="frame" x="60.5" y="20.5" width="53" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="PlayPause" image="pause.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="onClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="s2F-Xh-dx3"/>
@@ -150,6 +145,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v37-1W-X3d">
                                                 <rect key="frame" x="121.5" y="21" width="52.5" height="22"/>
+                                                <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="NextSong" image="forward.end.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="nextClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="6uM-CY-KtT"/>
@@ -157,6 +153,14 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etL-gp-2qP">
+                                        <rect key="frame" x="24" y="396" width="246" height="22"/>
+                                        <inset key="contentEdgeInsets" minX="114" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Add to playlist" image="plus" catalog="system"/>
+                                        <connections>
+                                            <action selector="addToPlaylistClick:" destination="53x-LZ-RHF" eventType="touchUpInside" id="Pc3-dE-qwT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="418" id="5DV-QO-60L"/>
