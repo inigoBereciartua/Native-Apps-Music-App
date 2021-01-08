@@ -21,60 +21,17 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let db = Firestore.firestore()
-       
-        db.collection("Artists").getDocuments(){(querySnapshot, err) in
-            if let err = err{
-                print("Error getting documents: \(err)")
-            }else{
-                self.artists = []
-                for artistDocument in querySnapshot!.documents {
-                    let artistData = artistDocument.data()
-                    let artistId:String = artistDocument.documentID
-                    let artistName: String = artistData["Name"]! as! String
-                    let photoUrl: URL = URL(string: artistData["Photo"]! as! String)!
-                    
-                    let data = try? Data(contentsOf: photoUrl)
-                    var photo = UIImage()
-                    if(data != nil){
-                        photo = UIImage(data: data!)!
-                    }
-                    let artist = Artist(id: artistId, name: artistName, photo: photo)
-                    self.artists.append(artist)
-                }
-            }
+        
+        let dataAccess = DataAccess()
+        dataAccess.getArtists(){artists in
+            self.artists = artists
             self.artistsCollectionView.reloadData()
         }
-        
-        db.collection("Playlists").addSnapshotListener{(querySnapshot, err) in
-            self.playlists = []
-            if let err = err{
-                print("Error getting documents: \(err)")
-            }else{
-                for playlistDocument in querySnapshot!.documents{
-                    let playlistData = playlistDocument.data()
-                    let playlistId = playlistDocument.documentID
-                    let playlistName : String = playlistData["Name"] as! String
-                    let playlist : Playlist
-                    
-                    if(playlistData["Photo"] != nil){
-                        let playlistPhotoUrl = URL(string: playlistData["Photo"] as! String)
-                        let data = try? Data(contentsOf: playlistPhotoUrl!)
-                        var photo = UIImage()
-                        if(data != nil){
-                            photo = UIImage(data: data!)!
-                        }
-                        playlist = Playlist(id: playlistId, name: playlistName, photo: photo)
-                    }else{
-                        playlist = Playlist(id: playlistId, name: playlistName)
-                    }
-                    
-                    
-                    self.playlists.append(playlist)
-                }
-            }
+        self.playlists = []
+        dataAccess.getPlaylistsWithListener(){ playlists in
+            self.playlists = playlists
             self.playlistsTableView.reloadData()
-        }                    
+        }                
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,7 +43,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Artist", for: indexPath) as! ArtistsCollectionViewCell
         cell.artistName.text = artist.name
         cell.artistPhoto.image = artist.photo
-        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

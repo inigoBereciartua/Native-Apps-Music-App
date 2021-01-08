@@ -18,23 +18,9 @@ class ArtistViewController: UIViewController,  UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let db = Firestore.firestore()
-        print(artist.id)
-        
-        
-        db.collection("Songs").whereField("AuthorId", isEqualTo: artist.id).getDocuments(){(querySnapshot, err) in
-            if let err = err{
-                print("Error getting documents: \(err)")
-            }else{
-                self.songs = []
-                for songDocument in querySnapshot!.documents {
-                    let songData = songDocument.data()
-                    let songId = songDocument.documentID
-                    let songName: String = songData["Name"]! as! String
-                    let song: Song = Song(id: songId, name: songName, artist: self.artist, playlists: [])
-                    self.songs.append(song)
-                }
-            }
+        let dataAccess = DataAccess()
+        dataAccess.getSongsOfArtist(artist: self.artist){ songs in
+            self.songs = songs
             self.songsTableView.reloadData()
         }
     }
@@ -47,8 +33,7 @@ class ArtistViewController: UIViewController,  UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "Song", for: indexPath)
         let song = self.songs[indexPath.row]
         cell.textLabel?.text = song.name
-        cell.detailTextLabel?.text = song.name
-        print(song.name)
+        cell.detailTextLabel?.text = song.name        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

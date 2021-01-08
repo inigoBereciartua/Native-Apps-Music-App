@@ -18,11 +18,11 @@ class PlayerViewController: UIViewController {
     public var image : UIImage = UIImage()
     public var songs: [Song] = []
     public var index = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let song = songs[index]
-        loadSong(song: song)
-        
+        loadSong(song: song)        
     }
     
     func loadSong(song:Song){

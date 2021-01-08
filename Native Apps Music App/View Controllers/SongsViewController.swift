@@ -16,27 +16,11 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let db = Firestore.firestore()
-        db.collection("Songs").getDocuments(){(querySnapshot, err) in
-            if let err = err{
-                print("Error getting documents: \(err)")
-            }else{
-                self.songs = []
-                for songDocument in querySnapshot!.documents {
-                    
-                    let songData = songDocument.data()
-                    let songPlaylists = songData["Playlists"] as! [String]
-                    
-                    let songId = songDocument.documentID
-                    let songName: String = songData["Name"]! as! String                    
-                    let song: Song = Song(id: songId, name: songName, artist: Artist(), playlists: songPlaylists)
-                    self.songs.append(song)
-                    
-                }
-               
-            }
+        let dataAccess = DataAccess()
+        dataAccess.getSongs(){ songs in
+            self.songs = songs
             self.songsTableView.reloadData()
-        }
+        }        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,8 +31,7 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "Song", for: indexPath)
         let song = self.songs[indexPath.row]
         cell.textLabel?.text = song.name
-        cell.detailTextLabel?.text = song.name
-        print(song.name)
+        cell.detailTextLabel?.text = song.name        
         return cell
     }
 

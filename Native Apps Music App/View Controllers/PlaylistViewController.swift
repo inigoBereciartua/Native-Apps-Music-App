@@ -16,26 +16,10 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
     var songs:[Song] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let db = Firestore.firestore()
-        db.collection("Songs").getDocuments(){(querySnapshot, err) in
-            if let err = err{
-                print("Error getting documents: \(err)")
-            }else{
-                self.songs = []
-                for songDocument in querySnapshot!.documents {
-                    
-                    let songData = songDocument.data()
-                    let songPlaylists = songData["Playlists"] as! [String]
-                    if(songPlaylists.contains(self.playlist.id)){
-                        let songId = songDocument.documentID
-                        let songName: String = songData["Name"]! as! String
-                        let song: Song = Song(id: songId, name: songName, artist: Artist(), playlists: songPlaylists)
-                        self.songs.append(song)
-                    }
-                    
-                }
-            }
+        super.viewDidLoad()    
+        let dataAccess = DataAccess()
+        dataAccess.getSongsOfPlaylist(playlistId: self.playlist.id){songs in
+            self.songs = songs
             self.songsTableView.reloadData()
         }
     }
@@ -48,8 +32,7 @@ class PlaylistViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "Song", for: indexPath)
         let song = self.songs[indexPath.row]
         cell.textLabel?.text = song.name
-        cell.detailTextLabel?.text = song.name
-        print(song.name)
+        cell.detailTextLabel?.text = song.name        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -271,7 +271,7 @@
                                 <rect key="frame" x="15" y="134" width="384" height="226"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="226" id="0fu-h7-VCV"/>
+                                    <constraint firstAttribute="height" constant="226" id="0fu-h7-VCV" userLabel="height = 160"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sQI-e7-kSp">
                                     <size key="itemSize" width="128" height="158"/>

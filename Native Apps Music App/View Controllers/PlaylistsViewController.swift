@@ -19,33 +19,14 @@ class PlaylistsViewController: UIViewController,  UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let db = Firestore.firestore()
-        db.collection("Playlists").getDocuments(){(querySnapshot, err) in
-            if let err = err{
-                print("Error getting documents: \(err)")
-            }else{
-                for playlistDocument in querySnapshot!.documents{
-                    let playlistData = playlistDocument.data()
-                    let playlistId = playlistDocument.documentID
-                    let playlistName : String = playlistData["Name"] as! String
-                    var playlist: Playlist = Playlist()
-                    if(playlistData["Photo"] != nil){
-                        let playlistPhotoUrl = URL(string: playlistData["Photo"] as! String)
-                        let data = try? Data(contentsOf: playlistPhotoUrl!)
-                        var photo = UIImage()
-                        if(data != nil){
-                            photo = UIImage(data: data!)!
-                        }
-                        playlist = Playlist(id: playlistId, name: playlistName, photo: photo)
-                    }else{
-                        playlist = Playlist(id: playlistId, name: playlistName)
-                    }
-                    self.playlistNames.append(playlistName)
-                    self.playlists.append(playlist)
-                }
-            }
+        
+        let dataAccess = DataAccess()
+        dataAccess.getPlaylists(){ playlists in
+            self.playlists = playlists
             self.playlistsTableView.reloadData()
-        }   
+            self.playlistNames = playlists.map{$0.name}
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
